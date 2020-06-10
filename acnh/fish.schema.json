@@ -2,8 +2,6 @@
   "$schema": "http://json-schema.org/draft-07/schema",
   "$id": "http://schemas.mechanicalninja.com/acnh/fish.schema.json",
   "type": "object",
-  "title": "The root schema",
-  "description": "The root schema comprises the entire JSON document.",
   "default": {},
   "required": [
     "data"
@@ -13,102 +11,12 @@
     "data": {
       "$id": "#/properties/data",
       "type": "array",
-      "title": "The data schema",
-      "description": "An explanation about the purpose of this instance.",
       "default": [],
-      "examples": [
-        [
-          {
-            "name": "bitterling",
-            "critterpediaOrder": 1,
-            "price": 900,
-            "location": "River",
-            "shadowSize": 1,
-            "time": "All day",
-            "months": "111000000011",
-            "timeRanges": {
-              "range1": [
-                0,
-                24
-              ]
-            },
-            "fin": false
-          },
-          {
-            "name": "pale chub",
-            "critterpediaOrder": 2,
-            "price": 200,
-            "location": "River",
-            "shadowSize": 1,
-            "time": "9 AM - 4 PM",
-            "months": "111111111111",
-            "timeRanges": {
-              "range1": [
-                9,
-                4
-              ]
-            },
-            "fin": false
-          }
-        ]
-      ],
       "additionalItems": false,
       "items": {
         "$id": "#/properties/data/items",
         "type": "object",
         "default": {},
-        "examples": [
-          [
-            {
-              "name": "bitterling",
-              "critterpediaOrder": 1,
-              "price": 900,
-              "location": "River",
-              "shadowSize": 1,
-              "time": "All day",
-              "months": "111000000011",
-              "timeRanges": {
-                "range1": [
-                  0,
-                  24
-                ]
-              },
-              "fin": false
-            },
-            {
-              "name": "pale chub",
-              "critterpediaOrder": 2,
-              "price": 200,
-              "location": "River",
-              "shadowSize": 1,
-              "time": "9 AM - 4 PM",
-              "months": "111111111111",
-              "timeRanges": {
-                "range1": [
-                  9,
-                  16
-                ]
-              },
-              "fin": false
-            },
-            {
-              "name": "great white shark",
-              "critterpediaOrder": 74,
-              "price": 15000,
-              "location": "Sea",
-              "shadowSize": 6,
-              "fin": true,
-              "time": "4 PM - 9 AM",
-              "months": "000001111000",
-              "timeRanges": {
-                "range1": [
-                  21,
-                  9
-                ]
-              }
-            },
-          ]
-        ],
         "required": [
           "name",
           "critterpediaOrder",
