@@ -72,16 +72,20 @@
           },
           "shadowSize": {
             "$id": "#/properties/data/items/properties/shadowSize",
-            "type": "integer",
-            "title": "Shadow Size",
-            "description": "The size of the fish's shadow in the water, from 1 (tiny) to 6 (huge).",
-            "default": 0,
-            "examples": [
-              1
+            "oneOf": [
+              {
+                "type": "integer",
+                "multipleOf": 1,
+                "maximum": 6,
+                "minimum": 1
+              },
+              {
+                "const": "Narrow"
+              }
             ],
-            "multipleOf": 1,
-            "maximum": 6,
-            "minimum": 1
+            "title": "Shadow Size",
+            "description": "The size of the fish's shadow in the water, from 1 (tiny) to 6 (huge), or \"Narrow\" for eels.",
+            "default": 0
           },
           "fin": {
             "$id": "#/properties/data/items/properties/fin",
@@ -95,10 +99,7 @@
             "type": "string",
             "title": "Time",
             "description": "Human-readable time the fish can be caught in the appropriate months.",
-            "default": "",
-            "examples": [
-              "All day"
-            ]
+            "default": ""
           },
           "months": {
             "$id": "#/properties/data/items/properties/months",
@@ -106,9 +107,6 @@
             "title": "Months",
             "description": "During which months the fish can be caught, starting in January (Northern Hemisphere) or July (Southern Hemisphere). 1 = can be caught, 0 = cannot be caught.",
             "default": "",
-            "examples": [
-              "111000000011"
-            ],
             "pattern": "([01]){12}"
           },
           "timeRanges": {
@@ -117,14 +115,6 @@
             "title": "Time Ranges",
             "description": "Machine-readable time ranges in which the fish can be caught, in the appropriate months.",
             "default": {},
-            "examples": [
-              {
-                "range1": [
-                  0,
-                  24
-                ]
-              }
-            ],
             "required": [
               "range1"
             ],
@@ -138,12 +128,6 @@
                 "default": [],
                 "minLength": 2,
                 "maxLength": 2,
-                "examples": [
-                  [
-                    9,
-                    17
-                  ]
-                ],
                 "additionalItems": false,
                 "items": {
                   "$id": "#/properties/data/items/properties/timeRanges/properties/range1/items",
