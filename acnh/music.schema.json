@@ -1,0 +1,45 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema",
+  "$id": "http://schemas.mechanicalninja.com/acnh/music.schema.json",
+  "type": "object",
+  "default": {},
+  "required": [
+    "data"
+  ],
+  "additionalProperties": true,
+  "properties": {
+    "data": {
+      "$id": "#/properties/data",
+      "type": "array",
+      "title": "Songs",
+      "default": [],
+      "additionalItems": false,
+      "items": {
+        "$id": "#/properties/data/items",
+        "type": "object",
+        "default": {},
+        "required": [
+          "name",
+          "secret"
+        ],
+        "additionalProperties": true,
+        "properties": {
+          "name": {
+            "$id": "#/properties/data/items/properties/name",
+            "type": "string",
+            "title": "Song Name",
+            "default": "",
+            "description": "The song name, in U.S. English."
+          },
+          "secret": {
+            "$id": "#/properties/data/items/properties/secret",
+            "type": "boolean",
+            "title": "Secret Song",
+            "description": "If true, the song can only be obtained by asking K.K. Slider for it directly.",
+            "default": false
+          }
+        }
+      }
+    }
+  }
+}
