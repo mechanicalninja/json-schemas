@@ -1,0 +1,102 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema",
+  "$id": "http://schemas.mechanicalninja.com/acnh/villagers.schema.json",
+  "type": "object",
+  "default": {},
+  "required": [
+    "data"
+  ],
+  "additionalProperties": true,
+  "properties": {
+    "data": {
+      "$id": "#/properties/data",
+      "type": "array",
+      "default": [],
+      "additionalItems": false,
+      "items": {
+        "$id": "#/properties/data/items",
+        "type": "object",
+        "default": {},
+        "required": [
+          "name",
+          "personality",
+          "gender",
+          "species",
+          "birthday",
+          "catchphrase",
+          "hobbies"
+        ],
+        "properties": {
+          "name": {
+            "$id": "#/properties/data/items/properties/name",
+            "type": "string",
+            "title": "Name",
+            "default": "",
+            "description": "The villager's name in the North American release."
+          },
+          "personality": {
+            "$id": "#/properties/data/items/properties/personality",
+            "type": "string",
+            "title": "Personality",
+            "default": ""
+          },
+          "gender": {
+            "$id": "#/properties/data/items/properties/gender",
+            "enum": [
+              "male",
+              "female"
+            ],
+            "title": "Gender",
+            "default": ""
+          },
+          "species": {
+            "$id": "#/properties/data/items/properties/species",
+            "type": "string",
+            "title": "Species",
+            "default": ""
+          },
+          "birthday": {
+            "$id": "#/properties/data/items/properties/birthday",
+            "type": "object",
+            "title": "Birthday",
+            "description": "The villager's birthday.",
+            "default": {},
+            "required": [
+              "month",
+              "day"
+            ],
+            "properties": {
+              "month": {
+                "$id": "#/properties/data/items/properties/birthday/properties/month",
+                "type": "integer",
+                "title": "Month",
+                "description": "The month, from 1 (January) to 12 (December).",
+                "default": 0
+              },
+              "day": {
+                "$id": "#/properties/data/items/properties/birthday/properties/day",
+                "type": "integer",
+                "title": "Day",
+                "default": 0
+              }
+            }
+          },
+          "catchphrase": {
+            "$id": "#/properties/data/items/properties/catchphrase",
+            "type": "string",
+            "title": "Catchphrase",
+            "description": "The villager's default catchphrase, in U.S. English.",
+            "default": ""
+          },
+          "hobbies": {
+            "$id": "#/properties/data/items/properties/hobbies",
+            "type": "string",
+            "title": "Hobbies",
+            "description": "The villager's hobbies, in U.S. English.",
+            "default": ""
+          }
+        }
+      }
+    }
+  }
+}
