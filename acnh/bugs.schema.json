@@ -1,0 +1,120 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema",
+  "$id": "http://schemas.mechanicalninja.com/acnh/bugs.schema.json",
+  "type": "object",
+  "title": "The root schema",
+  "description": "The root schema comprises the entire JSON document.",
+  "default": {},
+  "required": [
+    "data"
+  ],
+  "additionalProperties": true,
+  "properties": {
+    "data": {
+      "$id": "#/properties/data",
+      "type": "array",
+      "title": "Bug Data",
+      "default": [],
+      "additionalItems": false,
+      "items": {
+        "$id": "#/properties/data/items",
+        "type": "object",
+        "default": {},
+        "required": [
+          "name",
+          "critterpediaOrder",
+          "price",
+          "location",
+          "time",
+          "timeRanges",
+          "months"
+        ],
+        "properties": {
+          "name": {
+            "$id": "#/properties/data/items/properties/name",
+            "type": "string",
+            "title": "Name",
+            "description": "The bug's name, in U.S. English.",
+            "default": ""
+          },
+          "critterpediaOrder": {
+            "$id": "#/properties/data/items/properties/critterpediaOrder",
+            "type": "integer",
+            "title": "Critterpedia Order",
+            "description": "Where the fish is found in the Critterpedia, starting at 1 and counting down then over.",
+            "default": 0
+          },
+          "price": {
+            "$id": "#/properties/data/items/properties/price",
+            "type": "integer",
+            "title": "Resale Price",
+            "description": "The price of the bug when sold to Nook's Cranny directly. Flick will buy at 1.5x this value. The dropbox will buy at 0.8x this value.",
+            "default": 0
+          },
+          "location": {
+            "$id": "#/properties/data/items/properties/location",
+            "type": "string",
+            "title": "Location",
+            "description": "Where the bug can be caught.",
+            "default": ""
+          },
+          "time": {
+            "$id": "#/properties/data/items/properties/time",
+            "type": "string",
+            "title": "Time",
+            "description": "Human-readable time the bug can be caught in the appropriate months.",
+            "default": ""
+          },
+          "timeRanges": {
+            "$id": "#/properties/data/items/properties/timeRanges",
+            "type": "object",
+            "title": "Time Ranges",
+            "description": "Machine-readable time ranges in which the bug can be caught, in the appropriate months.",
+            "default": {},
+            "required": [
+              "range1"
+            ],
+            "properties": {
+              "range1": {
+                "$id": "#/properties/data/items/properties/timeRanges/properties/range1",
+                "type": "array",
+                "title": "Range 1",
+                "description": "The first (and usually only) time range in which the bug can be caught, in military hours. [0, 24] indicates the bug can be caught all day.",
+                "default": [],
+                "additionalItems": false,
+                "items": {
+                  "$id": "#/properties/data/items/properties/timeRanges/properties/range1/items",
+                  "type": "integer",
+                  "default": 0
+                }
+              },
+              "range2": {
+                "$id": "#/properties/data/items/properties/timeRanges/properties/range2",
+                "type": "array",
+                "title": "Range 2",
+                "description": "The second time range in which the bug can be caught, in military hours, for those bugs that are unavailable at midday.",
+                "default": [],
+                "additionalItems": false,
+                "items": {
+                  "$id": "#/properties/data/items/properties/timeRanges/properties/range2/items",
+                  "type": "integer",
+                  "title": "The items schema",
+                  "description": "An explanation about the purpose of this instance.",
+                  "default": 0
+                }
+              }
+            }
+          },
+          "months": {
+            "$id": "#/properties/data/items/properties/months",
+            "type": "string",
+            "title": "Months",
+            "description": "During which months the bug can be caught, starting in January (Northern Hemisphere) or July (Southern Hemisphere). 1 = can be caught, 0 = cannot be caught.",
+            "default": "",
+            "pattern": "([01]){12}"
+          }
+        }
+      }
+    }
+  }
+}

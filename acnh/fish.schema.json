@@ -56,8 +56,6 @@
       "items": {
         "$id": "#/properties/data/items",
         "type": "object",
-        "title": "The items schema",
-        "description": "An explanation about the purpose of this instance.",
         "default": {},
         "examples": [
           [
@@ -203,7 +201,7 @@
             "examples": [
               "111000000011"
             ],
-            "pattern": "(0|1){12}"
+            "pattern": "([01]){12}"
           },
           "timeRanges": {
             "$id": "#/properties/data/items/properties/timeRanges",
